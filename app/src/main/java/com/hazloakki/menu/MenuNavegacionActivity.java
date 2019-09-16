@@ -26,6 +26,7 @@ import androidx.fragment.app.FragmentManager;
 import android.view.Menu;
 
 import com.hazloakki.R;
+import com.hazloakki.view.home.HomeFragment;
 
 public class MenuNavegacionActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -103,8 +104,9 @@ public class MenuNavegacionActivity extends AppCompatActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         if (id == R.id.nav_home) {
-
+            fragmentoGenerico = new HomeFragment();
         } else if (id == R.id.nav_gallery) {
+
 
         } else if (id == R.id.nav_slideshow) {
 

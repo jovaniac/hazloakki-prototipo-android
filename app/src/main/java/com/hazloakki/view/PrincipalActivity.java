@@ -17,6 +17,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 import com.hazloakki.R;
+import com.hazloakki.view.home.HomeFragment;
 
 /*
 Orquestador principal que genera un layout base para agregar el menu de navegación
@@ -82,8 +83,7 @@ public class PrincipalActivity extends AppCompatActivity {
 
         switch (itemDrawer.getItemId()) {
             case R.id.nav_home:
-
-
+                fragmentoGenerico = new HomeFragment();
                 break;
 
         }
