@@ -1,6 +1,7 @@
 package com.hazloakki.view;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -30,12 +31,16 @@ public class PrincipalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_navegacion);
 
-        //agregarToolbar();
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
 
         if (navigationView != null) {
             prepararDrawer(navigationView);
@@ -77,7 +82,8 @@ public class PrincipalActivity extends AppCompatActivity {
 
         switch (itemDrawer.getItemId()) {
             case R.id.nav_home:
-                fragmentoGenerico = new Fragment();
+
+
                 break;
 
         }
@@ -111,4 +117,6 @@ public class PrincipalActivity extends AppCompatActivity {
         Intent intent = new Intent(context, PrincipalActivity.class);
         return intent;
     }
+
+
 }

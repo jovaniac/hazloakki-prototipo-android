@@ -34,7 +34,7 @@
     <RelativeLayout
         android:id="@+id/contenedor_tabs_principal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="match_parent">
+    </RelativeLayout>
 
-        />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

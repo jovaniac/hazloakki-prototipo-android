@@ -20,8 +20,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.Menu;
+
 import com.hazloakki.R;
 
 public class MenuNavegacionActivity extends AppCompatActivity
@@ -55,8 +58,6 @@ public class MenuNavegacionActivity extends AppCompatActivity
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
-
-
     }
 
 
@@ -98,9 +99,11 @@ public class MenuNavegacionActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Fragment fragmentoGenerico = null;
+        FragmentManager fragmentManager = getSupportFragmentManager();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -113,7 +116,17 @@ public class MenuNavegacionActivity extends AppCompatActivity
 
         }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        try {
+            fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.contenedor_tabs_principal, fragmentoGenerico).addToBackStack(null).commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Setear título actual
+        setTitle(item.getTitle());
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -122,4 +135,6 @@ public class MenuNavegacionActivity extends AppCompatActivity
         Intent intent = new Intent(context, MenuNavegacionActivity.class);
         return intent;
     }
+
+
 }
