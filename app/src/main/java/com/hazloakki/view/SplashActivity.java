@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.hazloakki.R;
+import com.hazloakki.menu.MenuNavegacionActivity;
 
 /*
  * Created by Jovani Arzate on 03/08/2019.
@@ -22,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        Intent i = MainActivity.getStartIntent(this);
+        Intent i = MenuNavegacionActivity.getStartIntent(this);
 
         new Handler().postDelayed(() -> {
             startActivity(i);
